@@ -1,0 +1,19 @@
+buildscript {    
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url "https://artifactory.trimble.tools/artifactory/ttm-mobile-ecosystem-maven"
+            credentials {
+                username = "${artifactory_user}"
+                password = "${artifactory_password}"
+            }
+        }
+    }
+    dependencies {
+        classpath 'com.trimble:infrastructure-gradle-plugins-plugin:2.1.0'
+    }
+}
+
+apply plugin: com.trimble.ttm.mep.plugins.GitflowPlugin
+apply plugin: com.trimble.ttm.mep.plugins.TtmMepAndroidPlugin
